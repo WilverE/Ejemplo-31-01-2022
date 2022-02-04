@@ -15,7 +15,7 @@ namespace Ejemplo_31_01_2022
 
         public int edad()
         {
-            
+            DateTime hoy = DateTime.Now; 
             return (20); 
         }
     }
