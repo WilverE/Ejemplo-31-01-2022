@@ -15,8 +15,14 @@ namespace Ejemplo_31_01_2022
 
         public int edad()
         {
-            DateTime hoy = DateTime.Now; 
-            return (20); 
+            DateTime hoy = DateTime.Now;
+            int año = hoy.Year - FechaNacimiento.Year;
+            if (hoy < FechaNacimiento.AddYears(año))
+            {
+                año--; 
+                
+            }
+            return (año);
         }
     }
 }

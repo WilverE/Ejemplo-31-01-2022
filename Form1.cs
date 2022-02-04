@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,12 @@ namespace Ejemplo_31_01_2022
         {
             persona.Dpi = textBoxDpi.Text;
             persona.Nombre = textBoxNombre.Text.Trim(); 
-            persona.Apellido = textBoxApellido.Text.Trim(); 
+            persona.Nombre = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(persona.Nombre);
+            persona.Apellido = textBoxApellido.Text.Trim();
+            persona.Apellido = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(persona.Apellido);
             persona.FechaNacimiento = dateTimePickerFechaNacimiento.Value;
+
+            
         }
 
         private void mostrarDatos_Click(object sender, EventArgs e)
@@ -43,7 +48,7 @@ namespace Ejemplo_31_01_2022
             labelNombre.Text = persona.Nombre;
             labelApellido.Text = persona.Apellido;
             labelFechaNacimiento.Text = persona.FechaNacimiento.ToString();
-            labelEdad.Text = persona.edad().ToString(); 
+            labelEdad.Text = "la edad es: " +persona.edad().ToString(); 
 
         }
 
